@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Divorce Agent — MA Reference Hub</title>
+<style>
+  :root{
+    --navy:#1f3864; --navy2:#2a4a7f; --gold:#c9a227; --bg:#f4f6fa; --card:#ffffff;
+    --ink:#1a2233; --muted:#5b667a; --line:#e1e7f0; --good:#1f7a4d; --warn:#b4541a; --shadow:0 2px 10px rgba(31,56,100,.08);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+  header{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:28px 22px 22px}
+  header .wrap{max-width:1080px;margin:0 auto}
+  header h1{margin:0 0 4px;font-size:1.6rem;letter-spacing:.2px}
+  header p{margin:0;color:#cdd8ee;font-size:.95rem}
+  .badge{display:inline-block;background:rgba(201,162,39,.18);color:#ffe6a3;border:1px solid rgba(201,162,39,.5);padding:2px 10px;border-radius:20px;font-size:.72rem;margin-top:10px;font-weight:600}
+  nav{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  nav .wrap{max-width:1080px;margin:0 auto;display:flex;gap:4px;flex-wrap:wrap;padding:8px 14px}
+  nav button{border:0;background:transparent;color:var(--muted);font-weight:600;font-size:.9rem;padding:9px 14px;border-radius:8px;cursor:pointer}
+  nav button:hover{background:var(--bg);color:var(--navy)}
+  nav button.active{background:var(--navy);color:#fff}
+  main{max-width:1080px;margin:0 auto;padding:22px 16px 60px}
+  .tab{display:none;animation:fade .2s ease}
+  .tab.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1}}
+  .search{width:100%;padding:13px 16px;border:1px solid var(--line);border-radius:10px;font-size:1rem;margin-bottom:18px;box-shadow:var(--shadow)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;box-shadow:var(--shadow)}
+  .card h3{margin:0 0 8px;color:var(--navy);font-size:1.05rem}
+  .card .tag{display:inline-block;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gold);background:#fdf6e3;border:1px solid #efe2b8;padding:2px 8px;border-radius:6px;margin-bottom:8px}
+  .card p,.card li{font-size:.9rem;color:var(--ink)}
+  .card ul{margin:6px 0 0;padding-left:18px}
+  .card a{color:var(--navy2);font-weight:600}
+  .pill{font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:20px}
+  .pill.ok{background:#e6f3ec;color:var(--good)}
+  .pill.flag{background:#fbeee4;color:var(--warn)}
+  .note{background:#fff8e6;border:1px solid #f0e1ad;border-radius:10px;padding:12px 16px;font-size:.86rem;color:#5a4a1a;margin:14px 0}
+  .disc{background:#eef2f9;border-left:4px solid var(--navy);padding:12px 16px;border-radius:8px;font-size:.85rem;color:var(--muted);margin-bottom:18px}
+  table{width:100%;border-collapse:collapse;background:#fff;border-radius:10px;overflow:hidden;box-shadow:var(--shadow);font-size:.88rem}
+  th{background:var(--navy);color:#fff;text-align:left;padding:10px 12px;font-size:.8rem}
+  td{padding:9px 12px;border-top:1px solid var(--line);vertical-align:top}
+  tr:nth-child(even) td{background:#fafbfe}
+  .cmd{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+  .cmd a{display:block;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px;box-shadow:var(--shadow);transition:transform .12s,border-color .12s}
+  .cmd a:hover{transform:translateY(-2px);border-color:var(--gold)}
+  .cmd .ic{font-size:1.4rem}
+  .cmd h4{margin:6px 0 3px;color:var(--navy)}
+  .cmd p{margin:0;font-size:.82rem;color:var(--muted)}
+  details{background:#fff;border:1px solid var(--line);border-radius:10px;padding:4px 16px;margin-bottom:10px;box-shadow:var(--shadow)}
+  summary{cursor:pointer;font-weight:600;color:var(--navy);padding:10px 0}
+  details p{font-size:.9rem}
+  footer{max-width:1080px;margin:0 auto;padding:24px 16px 50px;color:var(--muted);font-size:.78rem;border-top:1px solid var(--line)}
+  .hidden{display:none!important}
+  .sectitle{font-size:1.15rem;color:var(--navy);margin:6px 0 12px;font-weight:700}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>⚖️ Divorce Agent — Massachusetts Reference Hub</h1>
+    <p>Essex County focus · Coaching support, not legal advice</p>
+    <span class="badge">Current as of June 2026 · Verify on mass.gov before acting</span>
+  </div>
+</header>
+
+<nav>
+  <div class="wrap">
+    <button class="active" data-tab="ref">📚 Quick Reference</button>
+    <button data-tab="client">🧭 Client Explainers</button>
+    <button data-tab="faq">❓ FAQ</button>
+    <button data-tab="cmd">🛠️ Coach Command Center</button>
+  </div>
+</nav>
+
+<main>
+
+<!-- QUICK REFERENCE -->
+<section id="ref" class="tab active">
+  <div class="disc">Internal coach reference. Researched from mass.gov, malegislature.gov, and the 2025 MA Child Support Guidelines. This is legal <em>information</em>, not legal advice — you are a coach, not an attorney.</div>
+  <input type="text" id="refSearch" class="search" placeholder="🔍 Search the reference (e.g. alimony, QDRO, 1A, Essex, Rule 411, child support)…">
+  <div class="grid" id="refGrid">
+
+    <div class="card" data-k="process 1a 1b uncontested contested grounds no-fault irretrievable breakdown fault">
+      <span class="tag">Process</span>
+      <h3>1A vs. 1B Divorce</h3>
+      <p><b>1A (joint/uncontested):</b> both agree it's over + a signed notarized Separation Agreement. ~4–6 months.</p>
+      <p><b>1B (contested):</b> one wants it, or terms unresolved. Hearing no sooner than <b>6 months</b> after filing. ~12–18 months.</p>
+      <p>No-fault = "irretrievable breakdown." Fault grounds exist but are rare.</p>
+    </div>
+
+    <div class="card" data-k="residency jurisdiction venue file where one year salem lawrence">
+      <span class="tag">Jurisdiction</span>
+      <h3>Residency & Venue</h3>
+      <p>File in MA if you've lived here <b>1 year</b>, or the breakdown happened here while living here as a couple.</p>
+      <p><b>Essex venue:</b> Lawrence court if either party lives in Methuen, Lawrence, Andover, North Andover, or Haverhill; otherwise <b>Salem</b>.</p>
+    </div>
+
+    <div class="card" data-k="rule 411 automatic restraining order assets insurance freeze">
+      <span class="tag">Rule 411</span>
+      <h3>Automatic Restraining Order</h3>
+      <p>Kicks in on filing (plaintiff) / service (defendant). While pending, neither party may:</p>
+      <ul><li>Sell, hide, or transfer marital assets (beyond ordinary expenses)</li><li>Run up unreasonable debt on the other's credit</li><li>Drop spouse/kids from insurance or change beneficiaries</li></ul>
+    </div>
+
+    <div class="card" data-k="financial statement rule 401 410 disclosure short long form 75000 cjd-301">
+      <span class="tag">Disclosure</span>
+      <h3>Financial Statement &amp; Disclosure</h3>
+      <p><b>Rule 401:</b> sworn Financial Statement within <b>45 days of service</b>. Income &lt;$75K → Short Form (CJD-301S); ≥$75K → Long Form (CJD-301L).</p>
+      <p><b>Rule 410:</b> auto-exchange 3 yrs taxes, pay stubs, account statements within 45 days.</p>
+      <p><span class="pill flag">Coach tip</span> Helping clients organize this is your highest-value work.</p>
+    </div>
+
+    <div class="card" data-k="equitable distribution section 34 property division marital estate equal inheritance premarital">
+      <span class="tag">Property §34</span>
+      <h3>Equitable Distribution</h3>
+      <p>MA divides property <b>equitably (fairly), not necessarily 50/50</b>. Judge weighs many §34 factors (length of marriage, contributions, conduct, needs…).</p>
+      <p><b>Broad estate:</b> nearly everything can be on the table regardless of title — including inheritances, gifts, and premarital assets (depending on marriage length & commingling).</p>
+      <p>A professional degree/license is <b>not</b> divisible property.</p>
+    </div>
+
+    <div class="card" data-k="house marital home buyout sell nesting deferred sale equity">
+      <span class="tag">Marital Home</span>
+      <h3>Options for the House</h3>
+      <ul><li><b>Sell</b> &amp; split net equity</li><li><b>Buyout</b> — one keeps it, compensates the other (refinance or asset offset)</li><li><b>Defer sale / nesting</b> — e.g. until kids finish school</li></ul>
+    </div>
+
+    <div class="card" data-k="retirement pension qdro 401k ira dro coap tax-free rollover">
+      <span class="tag">Retirement</span>
+      <h3>Retirement &amp; QDROs</h3>
+      <p>A <b>QDRO</b> is a separate court order to split a 401(k)/pension — plans won't divide without one. DRO for MA state/municipal plans; COAP for federal.</p>
+      <p>Done right → <b>tax-free, penalty-free</b> transfer between spouses.</p>
+    </div>
+
+    <div class="card" data-k="debt division credit card student loan mortgage hold harmless joint">
+      <span class="tag">Debt</span>
+      <h3>Dividing Debt</h3>
+      <p>Debts divided equitably by who incurred them & why. <b>Caution:</b> a "hold-harmless" clause doesn't bind creditors — they can still pursue the other spouse. Best fix: refinance/pay off/remove names.</p>
+    </div>
+
+    <div class="card" data-k="alimony reform act types general rehabilitative reimbursement transitional duration">
+      <span class="tag">Alimony</span>
+      <h3>Alimony — Types &amp; Limits</h3>
+      <p><b>Four types:</b> general term, rehabilitative, reimbursement (≤5 yr marriages), transitional (≤5 yr).</p>
+      <p><b>Duration (general term):</b> ≤5 yr→50% of months; 5–10→60%; 10–15→70%; 15–20→80%; 20+→indefinite.</p>
+      <p><b>Amount:</b> generally ≤ recipient's need or 30–35% of the income difference.</p>
+    </div>
+
+    <div class="card" data-k="child support guidelines 2025 worksheet cjd-304 income cap 450000 college 23">
+      <span class="tag">Child Support</span>
+      <h3>Child Support (2025 Guidelines)</h3>
+      <p>New guidelines effective <b>Dec 1, 2025</b>. Worksheet = <b>CJD-304</b>. Income cap <b>$450K</b>; child-care benchmark $430/wk; min order $15/wk.</p>
+      <p>Based on both incomes, parenting time, health insurance, child care. Runs to 18 (up to 21/23 if dependent/in college).</p>
+    </div>
+
+    <div class="card" data-k="parent education two families now standing order 3-23 49 dollars online course">
+      <span class="tag">Parent Ed</span>
+      <h3>"Two Families Now"</h3>
+      <p>Required co-parenting course for minor-children cases without agreement. <b>4-hr online, $49/parent.</b> Register within 30 days of service. Waiver = CJD-444.</p>
+    </div>
+
+    <div class="card" data-k="essex probate family court salem lawrence address phone newburyport efiling">
+      <span class="tag">Essex Court</span>
+      <h3>Essex Probate &amp; Family Court</h3>
+      <p><b>Salem (main):</b> 36 Federal St, Salem · (978) 744-1020</p>
+      <p><b>Lawrence:</b> 2 Appleton St · (978) 686-9692 (Methuen/Lawrence/Andover/N.Andover/Haverhill)</p>
+      <p><span class="pill flag">Note</span> No Newburyport divorce court — those go to Salem.</p>
+      <p>eFile: efilema.com (attorneys required; pro se optional).</p>
+    </div>
+
+    <div class="card" data-k="fees filing cost 215 220 indigency waiver affidavit">
+      <span class="tag">Fees</span>
+      <h3>Filing Fees</h3>
+      <p>1A total <b>$215</b> · 1B total <b>$220</b>. Can't afford it → <b>Affidavit of Indigency</b> (waives court + $49 parent-ed fees).</p>
+    </div>
+
+    <div class="card" data-k="forms checklist cjd-101a cjd-101b r-408 cjd-304 affidavit irretrievable">
+      <span class="tag">Forms</span>
+      <h3>Key Forms</h3>
+      <ul>
+        <li><b>CJD-101A</b> Joint Petition (1A)</li>
+        <li><b>CJD-101B</b> Complaint (1B)</li>
+        <li><b>CJD-301S/301L</b> Financial Statement</li>
+        <li><b>CJD-304</b> Child Support Worksheet</li>
+        <li><b>R-408</b> Record of Absolute Divorce (<i>not</i> the CS worksheet!)</li>
+      </ul>
+    </div>
+
+    <div class="card" data-k="taxes irc 1041 121 capital gains basis alimony tax">
+      <span class="tag">Taxes</span>
+      <h3>Tax Flags</h3>
+      <p>Spousal transfers generally tax-free (IRC §1041) but <b>carry the original basis</b> — compare after-tax value. Home-sale exclusion $250K single/$500K joint (§121). Alimony post-2018: not taxed/not deductible.</p>
+    </div>
+
+    <div class="card" data-k="modification material change inconsistency guidelines alimony child support">
+      <span class="tag">Modification</span>
+      <h3>Changing Orders Later</h3>
+      <p><b>Child support:</b> modify on material change OR if the order is just inconsistent with current guidelines (lower bar).</p>
+      <p><b>Alimony:</b> material change only; ends on remarriage, 3+ mo cohabitation, or payer's full retirement age.</p>
+    </div>
+
+  </div>
+  <div class="note">⚠️ Reference only. Statutes, forms, and fees change — always confirm the live version on <a href="https://www.mass.gov" target="_blank" rel="noopener">mass.gov</a> before a client acts.</div>
+</section>
+
+<!-- CLIENT EXPLAINERS -->
+<section id="client" class="tab">
+  <div class="disc">Plain-language explainers you can walk through with clients. General information, not legal advice.</div>
+  <div class="sectitle">The Roadmap at a Glance</div>
+  <table>
+    <tr><th>Stage</th><th>What happens</th></tr>
+    <tr><td>1. Get organized</td><td>Understand the process, gather documents, build the financial picture (highest-value step).</td></tr>
+    <tr><td>2. Choose the path</td><td>1A (agree on everything) or 1B (contested) — decided with your attorney.</td></tr>
+    <tr><td>3. File &amp; the freeze</td><td>Pay the fee (~$215–$220); the Automatic Restraining Order protects assets.</td></tr>
+    <tr><td>4. Exchange finances</td><td>Both file a sworn Financial Statement and swap key documents.</td></tr>
+    <tr><td>5. Parenting course</td><td>If minor kids: the 4-hour online "Two Families Now" ($49).</td></tr>
+    <tr><td>6. Work out terms</td><td>Parenting, support, property — by negotiation, mediation, or court.</td></tr>
+    <tr><td>7. Finalize + wait</td><td>Judge approves; a 90–120 day "nisi" period before it's truly final.</td></tr>
+  </table>
+
+  <div class="sectitle" style="margin-top:22px">Three Things That Surprise People</div>
+  <div class="grid">
+    <div class="card"><h3>"Equitable" ≠ equal</h3><p>MA splits property <b>fairly</b>, which isn't always 50/50 — and almost everything can be considered, even inheritances or premarital assets.</p></div>
+    <div class="card"><h3>There's a waiting period</h3><p>Even after a judge signs off, the divorce isn't final for ~90–120 days. You can't remarry until it's absolute.</p></div>
+    <div class="card"><h3>Joint debt can follow you</h3><p>If your agreement says your ex pays a joint debt but they don't, the lender can still come after you. Remove your name where possible.</p></div>
+  </div>
+
+  <div class="note">Want the full written guides? They're in your project folder under <b>02_Client_Guides</b> (Roadmap, Understanding Your Finances, Support Explained, FAQ).</div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="tab">
+  <div class="disc">Common client questions. General information, not legal advice — specific situations go to the client's attorney.</div>
+  <input type="text" id="faqSearch" class="search" placeholder="🔍 Search FAQs…">
+  <div id="faqList">
+    <details><summary>How long does a divorce take?</summary><p>Uncontested (1A) often 4–6 months; contested (1B) 12–18 months. Even after approval there's a ~90–120 day waiting period before it's final.</p></details>
+    <details><summary>How much does it cost to file?</summary><p>About $215 (1A) or $220 (1B). If money is tight, an Affidavit of Indigency can waive court fees. Attorney costs are separate.</p></details>
+    <details><summary>Do I need a lawyer?</summary><p>Not required, but divorce involves binding decisions — at minimum have an attorney review your agreement. A coach helps you prepare so attorney time is used well.</p></details>
+    <details><summary>Where will my case be heard?</summary><p>Essex County → Salem, or Lawrence if either spouse lives in Methuen, Lawrence, Andover, North Andover, or Haverhill. No Newburyport divorce court.</p></details>
+    <details><summary>Can I file if my spouse won't agree?</summary><p>Yes — MA has no-fault divorce. If they don't agree it's a contested (1B) case with a built-in waiting period.</p></details>
+    <details><summary>Will I get half of everything?</summary><p>Not necessarily. MA divides property equitably (fairly), which isn't always equally.</p></details>
+    <details><summary>Is my inheritance protected?</summary><p>Maybe — in MA almost everything can be considered, though inheritances/premarital assets are often kept with the original owner depending on marriage length and whether they were mixed into shared finances.</p></details>
+    <details><summary>What happens to the house?</summary><p>Common options: sell and split, one spouse buys out the other, or delay the sale (sometimes until kids finish school).</p></details>
+    <details><summary>What is the "automatic restraining order"?</summary><p>Not about safety — it's a financial freeze on filing that stops either spouse from selling off/hiding assets or dropping insurance while the case is pending.</p></details>
+    <details><summary>How is child support calculated?</summary><p>An official state worksheet based on both incomes, parenting time, health insurance, and child-care costs. Guidelines updated Dec 1, 2025 — use the current calculator.</p></details>
+    <details><summary>Can support or custody change later?</summary><p>Yes, on a significant change in circumstances. Child support can also be revisited if it no longer matches current guidelines.</p></details>
+    <details><summary>Can I remarry right away?</summary><p>No — only after the divorce becomes absolute (final), following the post-judgment waiting period.</p></details>
+  </div>
+</section>
+
+<!-- COACH COMMAND CENTER -->
+<section id="cmd" class="tab">
+  <div class="disc">Your daily hub — jump to the Smartsheet tracker, official tools, and court resources.</div>
+  <div class="sectitle">📊 Smartsheet Case Tracker (Fructify Cowork Kits)</div>
+  <div class="cmd">
+    <a href="https://app.smartsheet.com/folders/M4rHcxfjr75c25wmwCF3G3hWHF3J62CH5hjjFvf1" target="_blank" rel="noopener"><div class="ic">📁</div><h4>Tracker Folder</h4><p>All four sheets in one place</p></a>
+    <a href="https://app.smartsheet.com/sheets/VFC9HfqWCQWw6Hfj78qPvQqvP32jv5f9wx7v7c61" target="_blank" rel="noopener"><div class="ic">👥</div><h4>Client Matters</h4><p>Master list of every client</p></a>
+    <a href="https://app.smartsheet.com/sheets/Q85rJqx2R3FR3Hrq46wQf8GPfQFPfp9H5P7JVGG1" target="_blank" rel="noopener"><div class="ic">⏰</div><h4>Tasks &amp; Deadlines</h4><p>What's due, sorted by date</p></a>
+    <a href="https://app.smartsheet.com/sheets/q6wWCgvRGXFRGw257JVv2JchgFX4gxX8vQJJxf51" target="_blank" rel="noopener"><div class="ic">🗺️</div><h4>MA Milestone Template</h4><p>19 standard milestones to copy in</p></a>
+    <a href="https://app.smartsheet.com/sheets/Fr9W8fRJ8Wpjr897MXg7gJ99w2WhpMHMH3FjjPV1" target="_blank" rel="noopener"><div class="ic">⚖️</div><h4>For Attorney Queue</h4><p>Park legal questions here (UPL safety)</p></a>
+  </div>
+
+  <div class="sectitle" style="margin-top:22px">🏛️ Official MA Tools &amp; Forms</div>
+  <div class="cmd">
+    <a href="https://www.mass.gov/guides/get-a-no-fault-1a-divorce" target="_blank" rel="noopener"><div class="ic">📄</div><h4>1A Divorce Guide</h4><p>mass.gov step-by-step</p></a>
+    <a href="https://www.mass.gov/info-details/get-a-no-fault-1b-divorce" target="_blank" rel="noopener"><div class="ic">📄</div><h4>1B Divorce Guide</h4><p>mass.gov step-by-step</p></a>
+    <a href="https://www.mass.gov/resource/2025-child-support-guidelines" target="_blank" rel="noopener"><div class="ic">🧮</div><h4>Child Support Guidelines</h4><p>2025 guidelines + worksheet</p></a>
+    <a href="https://www.mass.gov/info-details/massachusetts-law-about-alimony" target="_blank" rel="noopener"><div class="ic">💵</div><h4>Alimony Law</h4><p>Types, duration, amount</p></a>
+    <a href="https://www.mass.gov/filing-financial-statements-in-the-courts" target="_blank" rel="noopener"><div class="ic">📋</div><h4>Financial Statements</h4><p>Which form to file</p></a>
+    <a href="http://www.efilema.com/" target="_blank" rel="noopener"><div class="ic">💻</div><h4>eFileMA</h4><p>Electronic filing portal</p></a>
+  </div>
+
+  <div class="sectitle" style="margin-top:22px">📍 Essex Court &amp; Case Lookup</div>
+  <div class="cmd">
+    <a href="https://www.mass.gov/locations/essex-probate-and-family-court" target="_blank" rel="noopener"><div class="ic">🏛️</div><h4>Salem Court</h4><p>36 Federal St · (978) 744-1020</p></a>
+    <a href="https://www.mass.gov/locations/lawrence-probate-and-family-court" target="_blank" rel="noopener"><div class="ic">🏛️</div><h4>Lawrence Court</h4><p>2 Appleton St · (978) 686-9692</p></a>
+    <a href="https://www.mass.gov/search-court-dockets-calendars-and-case-information" target="_blank" rel="noopener"><div class="ic">🔎</div><h4>Docket Search</h4><p>Look up a case</p></a>
+    <a href="https://www.mass.gov/info-details/essex-probate-and-family-court-virtual-registry" target="_blank" rel="noopener"><div class="ic">💬</div><h4>Essex Virtual Registry</h4><p>Remote help</p></a>
+  </div>
+
+  <div class="note">🔒 <b>UPL reminder:</b> You're a coach, not an attorney. Explain how things work; route "what should I do in my case?" questions to the client's attorney via the For Attorney queue.</div>
+</section>
+
+</main>
+
+<footer>
+  <b>Divorce Agent — MA Reference Hub.</b> Built for a Massachusetts divorce coach (Essex County). Coaching support and general legal information only — not legal advice, and no attorney-client relationship. Contains no client data. Sources: mass.gov, malegislature.gov, 2025 MA Child Support Guidelines. Current as of June 2026; verify before relying.
+</footer>
+
+<script>
+  // tabs
+  document.querySelectorAll('nav button').forEach(b=>{
+    b.addEventListener('click',()=>{
+      document.querySelectorAll('nav button').forEach(x=>x.classList.remove('active'));
+      document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      document.getElementById(b.dataset.tab).classList.add('active');
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  });
+  // reference search
+  const rs=document.getElementById('refSearch');
+  rs.addEventListener('input',()=>{
+    const q=rs.value.toLowerCase().trim();
+    document.querySelectorAll('#refGrid .card').forEach(c=>{
+      const hay=(c.dataset.k+' '+c.textContent).toLowerCase();
+      c.classList.toggle('hidden',q && !hay.includes(q));
+    });
+  });
+  // faq search
+  const fs=document.getElementById('faqSearch');
+  fs.addEventListener('input',()=>{
+    const q=fs.value.toLowerCase().trim();
+    document.querySelectorAll('#faqList details').forEach(d=>{
+      d.classList.toggle('hidden',q && !d.textContent.toLowerCase().includes(q));
+    });
+  });
+</script>
+</body>
+</html>
