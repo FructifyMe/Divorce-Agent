@@ -91,7 +91,7 @@
     <button class="active" data-tab="ref">📚 Quick Reference</button>
     <button data-tab="client">🧭 Client Explainers</button>
     <button data-tab="faq">❓ FAQ</button>
-    <button data-tab="cmd">🛠️ Coach Command Center</button>
+    <button data-tab="cmd">🧰 Tools &amp; Court</button>
   </div>
 </nav>
 
@@ -272,17 +272,9 @@
 
 <!-- COACH COMMAND CENTER -->
 <section id="cmd" class="tab">
-  <div class="disc">Your daily hub — jump to the Smartsheet tracker, official tools, and court resources.</div>
-  <div class="sectitle">📊 Smartsheet Case Tracker (Fructify Cowork Kits)</div>
-  <div class="cmd">
-    <a href="https://app.smartsheet.com/folders/M4rHcxfjr75c25wmwCF3G3hWHF3J62CH5hjjFvf1" target="_blank" rel="noopener"><div class="ic">📁</div><h4>Tracker Folder</h4><p>All four sheets in one place</p></a>
-    <a href="https://app.smartsheet.com/sheets/VFC9HfqWCQWw6Hfj78qPvQqvP32jv5f9wx7v7c61" target="_blank" rel="noopener"><div class="ic">👥</div><h4>Client Matters</h4><p>Master list of every client</p></a>
-    <a href="https://app.smartsheet.com/sheets/Q85rJqx2R3FR3Hrq46wQf8GPfQFPfp9H5P7JVGG1" target="_blank" rel="noopener"><div class="ic">⏰</div><h4>Tasks &amp; Deadlines</h4><p>What's due, sorted by date</p></a>
-    <a href="https://app.smartsheet.com/sheets/q6wWCgvRGXFRGw257JVv2JchgFX4gxX8vQJJxf51" target="_blank" rel="noopener"><div class="ic">🗺️</div><h4>MA Milestone Template</h4><p>19 standard milestones to copy in</p></a>
-    <a href="https://app.smartsheet.com/sheets/Fr9W8fRJ8Wpjr897MXg7gJ99w2WhpMHMH3FjjPV1" target="_blank" rel="noopener"><div class="ic">⚖️</div><h4>For Attorney Queue</h4><p>Park legal questions here (UPL safety)</p></a>
-  </div>
+  <div class="disc">Helpful tools and official Massachusetts resources. General information only — no personal or client data here.</div>
 
-  <div class="sectitle" style="margin-top:22px">🏛️ Official MA Tools &amp; Forms</div>
+  <div class="sectitle">🏛️ Official MA Tools &amp; Forms</div>
   <div class="cmd">
     <a href="https://www.mass.gov/guides/get-a-no-fault-1a-divorce" target="_blank" rel="noopener"><div class="ic">📄</div><h4>1A Divorce Guide</h4><p>mass.gov step-by-step</p></a>
     <a href="https://www.mass.gov/info-details/get-a-no-fault-1b-divorce" target="_blank" rel="noopener"><div class="ic">📄</div><h4>1B Divorce Guide</h4><p>mass.gov step-by-step</p></a>
@@ -297,4 +289,28 @@
     <a href="https://www.mass.gov/locations/essex-probate-and-family-court" target="_blank" rel="noopener"><div class="ic">🏛️</div><h4>Salem Court</h4><p>36 Federal St · (978) 744-1020</p></a>
     <a href="https://www.mass.gov/locations/lawrence-probate-and-family-court" target="_blank" rel="noopener"><div class="ic">🏛️</div><h4>Lawrence Court</h4><p>2 Appleton St · (978) 686-9692</p></a>
     <a href="https://www.mass.gov/search-court-dockets-calendars-and-case-information" target="_blank" rel="noopener"><div class="ic">🔎</div><h4>Docket Search</h4><p>Look up a case</p></a>
-    <a href="https://www.mass.gov/info-details/essex-probate-and-family-court-virtual-registry" target="_blank" rel="noopener"><div class="ic">💬</div><
+    <a href="https://www.mass.gov/info-details/essex-probate-and-family-court-virtual-registry" target="_blank" rel="noopener"><div class="ic">💬</div><h4>Essex Virtual Registry</h4><p>Remote help</p></a>
+  </div>
+
+  <div class="note">ℹ️ These resources explain how the process works in general. For advice about your specific situation, talk with your attorney.</div>
+</section>
+
+</main>
+
+<footer>
+  <b>Divorce Agent — MA Reference Hub</b> · A <b style="color:#4A7C2E">Fructify</b> solution — <i>Cultivate growth, engineer success.</i><br><br>
+  Built for a Massachusetts divorce coach (Essex County). Coaching support and general legal information only — not legal advice, and no attorney-client relationship. Contains no client data. Sources: mass.gov, malegislature.gov, 2025 MA Child Support Guidelines. Current as of June 2026; verify before relying.
+</footer>
+
+<script>
+  // tabs
+  document.querySelectorAll('nav button').forEach(b=>{
+    b.addEventListener('click',()=>{
+      document.querySelectorAll('nav button').forEach(x=>x.classList.remove('active'));
+      document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      document.getElementById(b.dataset.tab).classList.add('active');
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  });
+  // reference searc
