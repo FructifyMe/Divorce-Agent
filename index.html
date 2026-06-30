@@ -6,16 +6,19 @@
 <title>Divorce Agent — MA Reference Hub</title>
 <style>
   :root{
-    --navy:#1f3864; --navy2:#2a4a7f; --gold:#c9a227; --bg:#f4f6fa; --card:#ffffff;
-    --ink:#1a2233; --muted:#5b667a; --line:#e1e7f0; --good:#1f7a4d; --warn:#b4541a; --shadow:0 2px 10px rgba(31,56,100,.08);
+    --navy:#0D1B2A; --navy2:#14283d; --gold:#7CB342; --fruit:#D4952A; --bg:#f4f6fa; --card:#ffffff;
+    --ink:#1a2233; --muted:#5b667a; --line:#e1e7f0; --good:#4A7C2E; --warn:#b4541a; --shadow:0 2px 10px rgba(13,27,42,.10);
   }
   *{box-sizing:border-box}
-  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
-  header{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:28px 22px 22px}
+  body{margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+  header{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:24px 22px 22px;border-bottom:3px solid var(--gold)}
   header .wrap{max-width:1080px;margin:0 auto}
-  header h1{margin:0 0 4px;font-size:1.6rem;letter-spacing:.2px}
-  header p{margin:0;color:#cdd8ee;font-size:.95rem}
-  .badge{display:inline-block;background:rgba(201,162,39,.18);color:#ffe6a3;border:1px solid rgba(201,162,39,.5);padding:2px 10px;border-radius:20px;font-size:.72rem;margin-top:10px;font-weight:600}
+  header .brand{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+  header .brand svg{height:42px;width:auto}
+  header .brand .tag{color:#9CCC65;font-size:.8rem;font-style:italic}
+  header h1{margin:0 0 4px;font-size:1.5rem;letter-spacing:.2px}
+  header p{margin:0;color:#aac0d8;font-size:.95rem}
+  .badge{display:inline-block;background:rgba(124,179,66,.18);color:#cdeeab;border:1px solid rgba(124,179,66,.5);padding:2px 10px;border-radius:20px;font-size:.72rem;margin-top:10px;font-weight:600}
   nav{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
   nav .wrap{max-width:1080px;margin:0 auto;display:flex;gap:4px;flex-wrap:wrap;padding:8px 14px}
   nav button{border:0;background:transparent;color:var(--muted);font-weight:600;font-size:.9rem;padding:9px 14px;border-radius:8px;cursor:pointer}
@@ -59,6 +62,24 @@
 <body>
 <header>
   <div class="wrap">
+    <div class="brand">
+      <svg viewBox="0 0 280 56" xmlns="http://www.w3.org/2000/svg" fill="none" role="img" aria-label="Fructify">
+        <defs>
+          <linearGradient id="stem" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#4A7C2E"/><stop offset="100%" stop-color="#7CB342"/></linearGradient>
+          <linearGradient id="leaf" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#4A7C2E"/><stop offset="60%" stop-color="#7CB342"/><stop offset="100%" stop-color="#9CCC65"/></linearGradient>
+          <linearGradient id="fruit" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F0C040"/><stop offset="50%" stop-color="#D4952A"/><stop offset="100%" stop-color="#C07820"/></linearGradient>
+        </defs>
+        <g transform="translate(6,3)">
+          <path d="M20 50 C20 38,20 30,22 20 C23 15,24 10,26 6" stroke="url(#stem)" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+          <path d="M21 30 C17 26,8 24,3 20 C0 18,2 14,6 16 C10 18,17 24,21 30Z" fill="url(#leaf)" opacity="0.9"/>
+          <path d="M23 22 C27 16,34 10,40 6 C44 4,44 8,40 12 C36 16,28 20,23 22Z" fill="url(#leaf)"/>
+          <ellipse cx="28" cy="7" rx="5.5" ry="6" fill="url(#fruit)"/>
+          <path d="M28 1 C30 -1,33 -1,32 1 C31 2,29 2,28 1Z" fill="#7CB342"/>
+        </g>
+        <text x="56" y="38" font-family="'Inter',system-ui,sans-serif" font-size="28" font-weight="700" letter-spacing="3" fill="white">FRUCTIFY</text>
+      </svg>
+      <span class="tag">Cultivate growth, engineer success.</span>
+    </div>
     <h1>⚖️ Divorce Agent — Massachusetts Reference Hub</h1>
     <p>Essex County focus · Coaching support, not legal advice</p>
     <span class="badge">Current as of June 2026 · Verify on mass.gov before acting</span>
@@ -276,46 +297,4 @@
     <a href="https://www.mass.gov/locations/essex-probate-and-family-court" target="_blank" rel="noopener"><div class="ic">🏛️</div><h4>Salem Court</h4><p>36 Federal St · (978) 744-1020</p></a>
     <a href="https://www.mass.gov/locations/lawrence-probate-and-family-court" target="_blank" rel="noopener"><div class="ic">🏛️</div><h4>Lawrence Court</h4><p>2 Appleton St · (978) 686-9692</p></a>
     <a href="https://www.mass.gov/search-court-dockets-calendars-and-case-information" target="_blank" rel="noopener"><div class="ic">🔎</div><h4>Docket Search</h4><p>Look up a case</p></a>
-    <a href="https://www.mass.gov/info-details/essex-probate-and-family-court-virtual-registry" target="_blank" rel="noopener"><div class="ic">💬</div><h4>Essex Virtual Registry</h4><p>Remote help</p></a>
-  </div>
-
-  <div class="note">🔒 <b>UPL reminder:</b> You're a coach, not an attorney. Explain how things work; route "what should I do in my case?" questions to the client's attorney via the For Attorney queue.</div>
-</section>
-
-</main>
-
-<footer>
-  <b>Divorce Agent — MA Reference Hub.</b> Built for a Massachusetts divorce coach (Essex County). Coaching support and general legal information only — not legal advice, and no attorney-client relationship. Contains no client data. Sources: mass.gov, malegislature.gov, 2025 MA Child Support Guidelines. Current as of June 2026; verify before relying.
-</footer>
-
-<script>
-  // tabs
-  document.querySelectorAll('nav button').forEach(b=>{
-    b.addEventListener('click',()=>{
-      document.querySelectorAll('nav button').forEach(x=>x.classList.remove('active'));
-      document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
-      b.classList.add('active');
-      document.getElementById(b.dataset.tab).classList.add('active');
-      window.scrollTo({top:0,behavior:'smooth'});
-    });
-  });
-  // reference search
-  const rs=document.getElementById('refSearch');
-  rs.addEventListener('input',()=>{
-    const q=rs.value.toLowerCase().trim();
-    document.querySelectorAll('#refGrid .card').forEach(c=>{
-      const hay=(c.dataset.k+' '+c.textContent).toLowerCase();
-      c.classList.toggle('hidden',q && !hay.includes(q));
-    });
-  });
-  // faq search
-  const fs=document.getElementById('faqSearch');
-  fs.addEventListener('input',()=>{
-    const q=fs.value.toLowerCase().trim();
-    document.querySelectorAll('#faqList details').forEach(d=>{
-      d.classList.toggle('hidden',q && !d.textContent.toLowerCase().includes(q));
-    });
-  });
-</script>
-</body>
-</html>
+    <a href="https://www.mass.gov/info-details/essex-probate-and-family-court-virtual-registry" target="_blank" rel="noopener"><div class="ic">💬</div><
